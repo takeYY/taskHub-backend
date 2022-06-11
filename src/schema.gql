@@ -7,7 +7,19 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Label {
+  color: String!
+  createdAt: DateTime!
+  id: Int!
+  isActive: Boolean!
+  name: String!
+  updatedAt: DateTime!
+  userId: String!
+}
+
 type Query {
+  Label(id: Int!): Label!
+  Labels: [Label]!
   findAllUsers: [User]!
   findUserById(id: ID!): User!
 }
