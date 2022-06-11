@@ -1,3 +1,39 @@
+# TaskHub-Backend
+
+## 環境構築
+
+```bash
+npm i
+```
+
+## 起動方法
+
+```bash
+# development
+npm run start
+
+# watch mode
+npm run start:dev
+
+# production mode
+npm run start:prod
+```
+
+## 新たなデータ追加
+
+`<DATA>`は適切に置き換える
+
+```bash
+# src/<DATA>/<DATA>.module.tsの作成
+nest g module <DATA>
+# src/<DATA>/<DATA>.service.tsの作成
+nest g service <DATA>
+# src/<DATA>/<DATA>.resolver.tsの作成
+nest g resolver <DATA>
+```
+
+---
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
