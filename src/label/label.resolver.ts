@@ -7,12 +7,12 @@ export class LabelResolver {
   constructor(private LabelService: LabelService) {}
 
   @Query((returns) => [Label], { nullable: 'items' })
-  async Labels() {
+  async labels() {
     return this.LabelService.findAll();
   }
 
   @Query(() => Label)
-  async Label(@Args('id', { type: () => Int }) id: number) {
+  async label(@Args('id', { type: () => Int }) id: number) {
     return await this.LabelService.findOneById(id);
   }
 }
