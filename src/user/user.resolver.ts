@@ -7,12 +7,12 @@ export class UserResolver {
   constructor(private userService: UserService) {}
 
   @Query(() => [User], { nullable: 'items' })
-  async findAllUsers() {
-    return this.userService.findAllUsers();
+  async users() {
+    return await this.userService.findAllUsers();
   }
 
   @Query(() => User)
-  async findUserById(@Args('id', { type: () => ID }) id: string) {
-    return this.userService.findUserById(id);
+  async user(@Args('id', { type: () => ID }) id: string) {
+    return await this.userService.findUserById(id);
   }
 }
