@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { UserModule } from './user/user.module';
+import { LabelModule } from './label/label.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UserModule } from './user/user.module';
       sortSchema: true,
     }),
     UserModule,
+    LabelModule,
   ],
   controllers: [AppController],
   providers: [AppService],
