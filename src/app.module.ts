@@ -6,6 +6,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import { UserModule } from './user/user.module';
+
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -15,6 +17,7 @@ import { AppService } from './app.service';
       // 生成されたschemaを自動でsortされるためのオプション
       sortSchema: true,
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
