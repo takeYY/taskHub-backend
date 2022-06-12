@@ -17,9 +17,18 @@ type Label {
   userId: String!
 }
 
+type Like {
+  createdAt: DateTime!
+  id: Int!
+  taskId: Int!
+  userId: ID!
+}
+
 type Query {
   label(id: Int!): Label!
   labels: [Label]!
+  like(id: Int!): Like!
+  likes: [Like]!
   task(id: Int!): Task!
   tasks: [Task]!
   user(id: ID!): User!

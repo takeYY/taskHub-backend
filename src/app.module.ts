@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { LabelModule } from './label/label.module';
 import { TaskModule } from './task/task.module';
+import { LikeModule } from './like/like.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { TaskModule } from './task/task.module';
     UserModule,
     LabelModule,
     TaskModule,
+    LikeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
