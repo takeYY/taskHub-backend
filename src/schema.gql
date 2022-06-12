@@ -18,10 +18,23 @@ type Label {
 }
 
 type Query {
-  Label(id: Int!): Label!
-  Labels: [Label]!
-  findAllUsers: [User]!
-  findUserById(id: ID!): User!
+  label(id: Int!): Label!
+  labels: [Label]!
+  task(id: Int!): Task!
+  tasks: [Task]!
+  user(id: ID!): User!
+  users: [User]!
+}
+
+type Task {
+  createdAt: DateTime!
+  description: String!
+  id: Int!
+  isDone: Boolean!
+  labelId: Float!
+  name: String!
+  updatedAt: DateTime!
+  userId: String!
 }
 
 type User {
