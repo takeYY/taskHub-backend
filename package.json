@@ -5,7 +5,7 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -20,6 +20,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
+    "fb": "npm run build && firebase serve -p 5001",
     "fb-serve": "npm run build && firebase emulators:start --only functions",
     "fb-shell": "npm run build && firebase functions:shell",
     "fb-start": "npm run shell",
