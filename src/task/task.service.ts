@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
-import { Task } from './models/task.models';
+import { Task } from '../models/task.models';
 import { sTask } from 'src/sample/sTask.data';
 
 @Injectable()

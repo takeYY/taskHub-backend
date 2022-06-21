@@ -1,4 +1,4 @@
-import { Task } from 'src/task/models/task.models';
+import { Task } from 'src/models/task.models';
 import { sLabels } from './sLabel.data';
 import { sUser } from './sUser.data';
 
