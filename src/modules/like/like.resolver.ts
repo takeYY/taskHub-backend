@@ -1,6 +1,6 @@
 import { Args, Int, Query, Resolver } from '@nestjs/graphql';
 import { LikeService } from './like.service';
-import { Like } from '../models/like.model';
+import { Like } from '../../models/like.model';
 
 @Resolver((of) => Like)
 export class LikeResolver {
