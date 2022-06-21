@@ -1,4 +1,4 @@
-import { Like } from 'src/like/models/like.model';
+import { Like } from 'src/models/like.model';
 import { sTask } from './sTask.data';
 import { sUser } from './sUser.data';
 
