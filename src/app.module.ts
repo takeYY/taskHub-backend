@@ -7,7 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { UserModule } from './user/user.module';
-import { LabelModule } from './label/label.module';
+import { LabelModule } from './modules/label/label.module';
 import { TaskModule } from './task/task.module';
 import { LikeModule } from './like/like.module';
 

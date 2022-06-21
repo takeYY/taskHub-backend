@@ -1,6 +1,6 @@
 import { Args, Query, Int, Resolver } from '@nestjs/graphql';
 import { LabelService } from './label.service';
-import { Label } from '../models/label.model';
+import { Label } from '../../models/label.model';
 
 @Resolver((of) => Label)
 export class LabelResolver {
