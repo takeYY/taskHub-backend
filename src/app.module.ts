@@ -8,7 +8,7 @@ import { AppService } from './app.service';
 
 import { UserModule } from './user/user.module';
 import { LabelModule } from './modules/label/label.module';
-import { TaskModule } from './task/task.module';
+import { TaskModule } from './modules/task/task.module';
 import { LikeModule } from './modules/like/like.module';
 
 @Module({
