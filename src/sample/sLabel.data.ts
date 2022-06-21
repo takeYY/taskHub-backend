@@ -1,4 +1,4 @@
-import { Label } from 'src/label/models/label.models';
+import { Label } from 'src/models/label.models';
 import { sUser } from './sUser.data';
 
 export const sLabels: Label[] = [
