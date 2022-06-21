@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { sUser } from 'src/sample/sUser.data';
-import { User } from '../models/user.model';
+import { User } from '../../models/user.model';
 
 @Injectable()
 export class UserService {
