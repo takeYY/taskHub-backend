@@ -19,18 +19,18 @@ export class UserResolver {
   ) {}
 
   @Query(() => [User], { nullable: 'items' })
-  async users() {
+  async users(): Promise<User[]> {
     return await this.userService.findAllUsers();
   }
 
   @Query(() => User)
-  async user(@Args('id', { type: () => ID }) id: string) {
+  async user(@Args('id', { type: () => ID }) id: string): Promise<User> {
     return await this.userService.findUserById(id);
   }
 
   // get labels by user
   @ResolveField(() => [Label])
-  async labels(@Parent() user: User) {
+  async labels(@Parent() user: User): Promise<Label[]> {
     return await this.labelService.getLabelsByUser(user.id);
   }
 }
