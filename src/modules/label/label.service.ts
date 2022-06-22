@@ -17,4 +17,13 @@ export class LabelService {
     }
     return await result;
   }
+
+  // get labels by user
+  async getLabelsByUser(id: string): Promise<Label[]> {
+    const result = await this.labels.filter((label) => id === label.userId);
+    if (!result) {
+      throw new NotFoundException();
+    }
+    return await result;
+  }
 }

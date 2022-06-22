@@ -51,6 +51,7 @@ type User {
   createdAt: DateTime!
   email: String!
   id: ID!
+  labels: [Label!]!
   name: String!
   profile: String!
   updatedAt: DateTime!

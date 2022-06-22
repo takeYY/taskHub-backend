@@ -4,5 +4,6 @@ import { LabelResolver } from './label.resolver';
 
 @Module({
   providers: [LabelService, LabelResolver],
+  exports: [LabelService],
 })
 export class LabelModule {}
