@@ -2,6 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateUserDto {
+  avatar: String
+  createdAt: DateTime
+  email: String!
+  id: ID!
+  name: String!
+  profile: String!
+  updatedAt: DateTime
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -22,6 +32,10 @@ type Like {
   id: Int!
   taskId: Int!
   userId: ID!
+}
+
+type Mutation {
+  createUser(user: CreateUserDto!): User!
 }
 
 type Query {

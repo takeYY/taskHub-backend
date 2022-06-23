@@ -2,6 +2,7 @@ import {
   Args,
   ID,
   Query,
+  Mutation,
   Resolver,
   ResolveField,
   Parent,
@@ -9,6 +10,7 @@ import {
 import { Label } from 'src/models/label.model';
 import { User } from '../../models/user.model';
 import { LabelService } from '../label/label.service';
+import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
 @Resolver((of) => User)
@@ -26,6 +28,12 @@ export class UserResolver {
   @Query(() => User)
   async user(@Args('id', { type: () => ID }) id: string): Promise<User> {
     return await this.userService.findUserById(id);
+  }
+
+  // create user
+  @Mutation(() => User)
+  async createUser(@Args('user') createUserDto: CreateUserDto): Promise<User> {
+    return await this.userService.createUser(createUserDto);
   }
 
   // get labels by user
