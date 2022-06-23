@@ -28,7 +28,9 @@ export class UserService {
   }
 
   async findUserById(id: string): Promise<User> {
-    const result = await this.users.find((user) => id === user.id);
+    // TODO: userRefのwhereで直接データを絞り込むようにする
+    const users = await this.findAllUsers();
+    const result = await users.find((user) => id === user.id);
     if (!result) {
       throw new NotFoundException();
     }
