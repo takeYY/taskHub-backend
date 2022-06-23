@@ -10,7 +10,21 @@ export class UserService {
   private userRef = firestore.collection('users');
 
   async findAllUsers(): Promise<User[]> {
-    return await this.users;
+    const snapshot = await this.userRef.get();
+    const userList = snapshot.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        name: data.name,
+        email: data.email,
+        profile: data.profile,
+        avatar: data.avatar,
+        createdAt: data.createdAt,
+        updatedAt: data.updatedAt,
+      };
+    });
+
+    return userList;
   }
 
   async findUserById(id: string): Promise<User> {
