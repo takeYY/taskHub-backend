@@ -1,4 +1,4 @@
-import { Args, Int, Query, Resolver } from '@nestjs/graphql';
+import { Args, ID, Query, Resolver } from '@nestjs/graphql';
 
 import { Like } from '~/models/like.model';
 import { LikeService } from '~/modules/like/like.service';
@@ -13,7 +13,7 @@ export class LikeResolver {
   }
 
   @Query(() => Like)
-  async like(@Args('id', { type: () => Int }) id: number): Promise<Like> {
+  async like(@Args('id', { type: () => ID }) id: string): Promise<Like> {
     return await this.likeService.findLikeById(id);
   }
 }
