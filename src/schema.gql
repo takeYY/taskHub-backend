@@ -20,17 +20,17 @@ scalar DateTime
 type Label {
   color: String!
   createdAt: DateTime!
-  id: Int!
+  id: ID!
   isActive: Boolean!
   name: String!
   updatedAt: DateTime!
-  userId: String!
+  userId: ID!
 }
 
 type Like {
   createdAt: DateTime!
-  id: Int!
-  taskId: Int!
+  id: ID!
+  taskId: ID!
   userId: ID!
 }
 
@@ -39,11 +39,11 @@ type Mutation {
 }
 
 type Query {
-  label(id: Int!): Label!
+  label(id: ID!): Label!
   labels: [Label]!
-  like(id: Int!): Like!
+  like(id: ID!): Like!
   likes: [Like]!
-  task(id: Int!): Task!
+  task(id: ID!): Task!
   tasks: [Task]!
   user(id: ID!): User!
   users: [User]!
@@ -52,12 +52,12 @@ type Query {
 type Task {
   createdAt: DateTime!
   description: String!
-  id: Int!
+  id: ID!
   isDone: Boolean!
-  labelId: Float!
+  labelId: ID!
   name: String!
   updatedAt: DateTime!
-  userId: String!
+  userId: ID!
 }
 
 type User {
