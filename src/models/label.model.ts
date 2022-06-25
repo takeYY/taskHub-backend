@@ -1,11 +1,11 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { MaxLength } from 'class-validator';
 
 @ObjectType()
 export class Label {
-  @Field((type) => Int)
+  @Field((type) => ID)
   @MaxLength(30)
-  id: number;
+  id: string;
 
   @Field()
   @MaxLength(10)
