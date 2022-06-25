@@ -17,9 +17,10 @@ import { UserModule } from '~/modules/user/user.module';
       // TODO: @nestjs/configのConfigServiceを利用して、開発用と本番用を分けるようにする
       // schemaファイルのパスを指定
       /* ローカル開発用 */
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      // autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       /* 本番用 */
-      // autoSchemaFile: true,
+      introspection: true,
+      autoSchemaFile: true,
       // 生成されたschemaを自動でsortされるためのオプション
       sortSchema: true,
     }),
