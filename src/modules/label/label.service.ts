@@ -36,10 +36,10 @@ export class LabelService {
   }
 
   // get labels by user
-  async getLabelsByUser(id: string): Promise<Label[]> {
+  async getLabelsByUser(userId: string): Promise<Label[]> {
     // TODO: labelRefのwhereで直接データを取り込めるようにする
     const labels = await this.findAll();
-    const result = await labels.filter((label) => id === label.userId);
+    const result = await labels.filter((label) => userId === label.userId);
     if (!result) {
       throw new NotFoundException();
     }
