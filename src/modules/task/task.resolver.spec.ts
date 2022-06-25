@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { TaskResolver } from './task.resolver';
 
 describe('TaskResolver', () => {

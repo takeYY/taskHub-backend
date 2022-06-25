@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
-import { Task } from '../../models/task.model';
-import { sTask } from 'src/sample/sTask.data';
+import { Task } from '~/models/task.model';
+import { sTask } from '~/sample/sTask.data';
 
 @Injectable()
 export class TaskService {

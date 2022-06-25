@@ -1,17 +1,18 @@
 import {
   Args,
   ID,
-  Query,
   Mutation,
-  Resolver,
-  ResolveField,
   Parent,
+  Query,
+  ResolveField,
+  Resolver,
 } from '@nestjs/graphql';
-import { Label } from 'src/models/label.model';
-import { User } from '../../models/user.model';
-import { LabelService } from '../label/label.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UserService } from './user.service';
+
+import { Label } from '~/models/label.model';
+import { User } from '~/models/user.model';
+import { LabelService } from '~/modules/label/label.service';
+import { CreateUserDto } from '~/modules/user/dto/create-user.dto';
+import { UserService } from '~/modules/user/user.service';
 
 @Resolver((of) => User)
 export class UserResolver {

@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { sLike } from 'src/sample/sLike.data';
-import { Like } from '../../models/like.model';
+
+import { Like } from '~/models/like.model';
+import { sLike } from '~/sample/sLike.data';
 
 @Injectable()
 export class LikeService {

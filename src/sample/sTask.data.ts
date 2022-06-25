@@ -1,6 +1,6 @@
-import { Task } from 'src/models/task.model';
-import { sLabels } from './sLabel.data';
-import { sUser } from './sUser.data';
+import { Task } from '~/models/task.model';
+import { sLabels } from '~/sample/sLabel.data';
+import { sUser } from '~/sample/sUser.data';
 
 export const sTask: Task[] = [
   {

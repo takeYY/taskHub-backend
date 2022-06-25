@@ -1,15 +1,14 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
-import { UserModule } from './modules/user/user.module';
-import { LabelModule } from './modules/label/label.module';
-import { TaskModule } from './modules/task/task.module';
-import { LikeModule } from './modules/like/like.module';
+import { AppController } from '~/app.controller';
+import { AppService } from '~/app.service';
+import { LabelModule } from '~/modules/label/label.module';
+import { LikeModule } from '~/modules/like/like.module';
+import { TaskModule } from '~/modules/task/task.module';
+import { UserModule } from '~/modules/user/user.module';
 
 @Module({
   imports: [

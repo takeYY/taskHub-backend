@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-
 import * as admin from 'firebase-admin';
 
 admin.initializeApp();

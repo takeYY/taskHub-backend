@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { LabelService } from './label.service';
 
 describe('LabelService', () => {

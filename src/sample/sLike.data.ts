@@ -1,6 +1,6 @@
-import { Like } from 'src/models/like.model';
-import { sTask } from './sTask.data';
-import { sUser } from './sUser.data';
+import { Like } from '~/models/like.model';
+import { sTask } from '~/sample/sTask.data';
+import { sUser } from '~/sample/sUser.data';
 
 export const sLike: Like[] = [
   {

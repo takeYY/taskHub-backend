@@ -1,12 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { firestore } from 'src/app.service';
-import { sUser } from 'src/sample/sUser.data';
-import { User } from '../../models/user.model';
-import { CreateUserDto } from './dto/create-user.dto';
+
+import { firestore } from '~/app.service';
+import { User } from '~/models/user.model';
+import { CreateUserDto } from '~/modules/user/dto/create-user.dto';
 
 @Injectable()
 export class UserService {
-  private users: User[] = sUser;
   private userRef = firestore.collection('users');
 
   async findAllUsers(): Promise<User[]> {

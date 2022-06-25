@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { sLabels } from 'src/sample/sLabel.data';
-import { Label } from '../../models/label.model';
+
+import { Label } from '~/models/label.model';
+import { sLabels } from '~/sample/sLabel.data';
 
 @Injectable()
 export class LabelService {

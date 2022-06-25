@@ -1,7 +1,9 @@
-import { Module, forwardRef } from '@nestjs/common';
-import { UserService } from './user.service';
-import { UserResolver } from './user.resolver';
-import { LabelModule } from '../label/label.module';
+import { forwardRef } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+
+import { LabelModule } from '~/modules/label/label.module';
+import { UserResolver } from '~/modules/user/user.resolver';
+import { UserService } from '~/modules/user/user.service';
 
 @Module({
   imports: [forwardRef(() => LabelModule)],
