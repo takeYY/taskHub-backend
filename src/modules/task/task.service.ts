@@ -1,18 +1,35 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
+import { firestore } from '~/app.service';
 import { Task } from '~/models/task.model';
-import { sTask } from '~/sample/sTask.data';
 
 @Injectable()
 export class TaskService {
-  private tasks: Task[] = sTask;
+  private taskRef = firestore.collection('tasks');
 
   async findAllTasks(): Promise<Task[]> {
-    return await this.tasks;
+    const snapshot = await this.taskRef.get();
+    const taskList = snapshot.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        name: data.name,
+        description: data.description,
+        isDone: data.isDone,
+        userId: data.userId,
+        labelId: data.labelId,
+        createdAt: data.createdAt,
+        updatedAt: data.updatedAt,
+      };
+    });
+
+    return taskList;
   }
 
-  async findTaskById(id: number): Promise<Task> {
-    const result = await this.tasks.find((task) => id === task.id);
+  async findTaskById(id: string): Promise<Task> {
+    // TODO: taskRefのwhereで直接データを絞り込むようにする
+    const tasks = await this.findAllTasks();
+    const result = await tasks.find((task) => id === task.id);
     if (!result) {
       throw new NotFoundException();
     }

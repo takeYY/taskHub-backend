@@ -1,4 +1,4 @@
-import { Args, Int, Query, Resolver } from '@nestjs/graphql';
+import { Args, ID, Int, Query, Resolver } from '@nestjs/graphql';
 
 import { Task } from '~/models/task.model';
 import { TaskService } from '~/modules/task/task.service';
@@ -13,7 +13,7 @@ export class TaskResolver {
   }
 
   @Query(() => Task)
-  async task(@Args('id', { type: () => Int }) id: number): Promise<Task> {
+  async task(@Args('id', { type: () => ID }) id: string): Promise<Task> {
     return await this.taskService.findTaskById(id);
   }
 }
