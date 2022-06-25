@@ -1,10 +1,10 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { MaxLength } from 'class-validator';
 
 @ObjectType()
 export class Task {
-  @Field((type) => Int)
-  id: number;
+  @Field((type) => ID)
+  id: string;
 
   @Field()
   @MaxLength(30)
@@ -16,11 +16,11 @@ export class Task {
   @Field({ defaultValue: false })
   isDone: boolean;
 
-  @Field()
+  @Field((type) => ID)
   userId: string;
 
-  @Field()
-  labelId: number;
+  @Field((type) => ID)
+  labelId: string;
 
   @Field({ defaultValue: new Date() })
   createdAt: Date;
