@@ -2,22 +2,48 @@
 
 ## 環境構築
 
+必要なパッケージのインストール
+
 ```bash
 npm i
 ```
 
 ## 起動方法
 
-```bash
-# development
-npm run start
+- プログラムの起動
 
-# watch mode
-npm run start:dev
+  ```bash
+  # development
+  npm run start
 
-# production mode
-npm run start:prod
-```
+  # watch mode
+  npm run start:dev
+
+  # production mode
+  npm run start:prod
+  ```
+
+- ESLint による構文チェックと整形
+
+  ```bash
+  npm run lint
+  ```
+
+- Firebase エミュレータの起動
+
+  Firestore, Functions のエミュレータが起動し、本番環境の DB が汚染されない。エミュレータ環境の DB は空っぽの状態で起動し、起動毎にリセットされる。
+
+  ```bash
+  npm run emulators
+  ```
+
+- Function エミュレータ起動
+
+  Functions のエミュレータが起動し、本番環境の DB と接続する。
+
+  ```bash
+  npm run fb
+  ```
 
 ## 新たなデータ追加
 
@@ -32,10 +58,16 @@ nest g service <DATA>
 nest g resolver <DATA>
 ```
 
+## デプロイ
+
+```bash
+npm run deploy
+```
+
 ---
 
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="144" alt="Nest Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
