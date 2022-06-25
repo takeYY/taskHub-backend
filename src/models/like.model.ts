@@ -1,12 +1,12 @@
-import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Like {
-  @Field((type) => Int)
-  id: number;
+  @Field((type) => ID)
+  id: string;
 
-  @Field((type) => Int)
-  taskId: number;
+  @Field((type) => ID)
+  taskId: string;
 
   @Field((type) => ID)
   userId: string;
