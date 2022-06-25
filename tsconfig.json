@@ -19,8 +19,7 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "module": "commonjs"
+    "noFallthroughCasesInSwitch": false
     //"esModuleInterop": true
   }
 }
