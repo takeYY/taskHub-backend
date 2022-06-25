@@ -18,7 +18,7 @@ export class Label {
   @Field({ defaultValue: true })
   isActive: boolean;
 
-  @Field()
+  @Field((type) => ID)
   userId: string;
 
   @Field({ defaultValue: new Date() })
