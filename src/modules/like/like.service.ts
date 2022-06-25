@@ -1,18 +1,31 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
+import { firestore } from '~/app.service';
 import { Like } from '~/models/like.model';
-import { sLike } from '~/sample/sLike.data';
 
 @Injectable()
 export class LikeService {
-  private likes: Like[] = sLike;
+  private likeRef = firestore.collection('likes');
 
   async findAllLikes(): Promise<Like[]> {
-    return await this.likes;
+    const snapshot = await this.likeRef.get();
+    const likeList = snapshot.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        taskId: data.taskId,
+        userId: data.userId,
+        createdAt: data.createdAt,
+      };
+    });
+
+    return likeList;
   }
 
-  async findLikeById(id: number): Promise<Like> {
-    const result = await this.likes.find((like) => id === like.id);
+  async findLikeById(id: string): Promise<Like> {
+    // TODO: likeRefのwhereで直接データを絞り込むようにする
+    const likes = await this.findAllLikes();
+    const result = await likes.find((like) => id === like.id);
     if (!result) {
       throw new NotFoundException();
     }

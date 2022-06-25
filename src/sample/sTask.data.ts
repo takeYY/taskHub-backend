@@ -4,7 +4,7 @@ import { sUser } from '~/sample/sUser.data';
 
 export const sTask: Task[] = [
   {
-    id: 1,
+    id: '1',
     name: '使徒、襲来',
     description: '第4使徒を殲滅する',
     isDone: false,
@@ -17,7 +17,7 @@ export const sTask: Task[] = [
     updatedAt: new Date(),
   },
   {
-    id: 2,
+    id: '2',
     name: 'ヤシマ作戦',
     description: 'シンジを守る',
     isDone: false,

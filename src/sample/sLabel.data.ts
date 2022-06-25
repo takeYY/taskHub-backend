@@ -3,7 +3,7 @@ import { sUser } from '~/sample/sUser.data';
 
 export const sLabels: Label[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Fight',
     color: '8b008b',
     isActive: true,
@@ -12,7 +12,7 @@ export const sLabels: Label[] = [
     updatedAt: new Date(),
   },
   {
-    id: 2,
+    id: '2',
     name: 'Fight',
     color: 'ffd700',
     isActive: true,
@@ -21,7 +21,7 @@ export const sLabels: Label[] = [
     updatedAt: new Date(),
   },
   {
-    id: 3,
+    id: '3',
     name: 'Fight',
     color: 'dc143c',
     isActive: true,
@@ -30,7 +30,7 @@ export const sLabels: Label[] = [
     updatedAt: new Date(),
   },
   {
-    id: 4,
+    id: '4',
     name: 'Fight',
     color: 'ffb6c1',
     isActive: true,
@@ -40,7 +40,7 @@ export const sLabels: Label[] = [
     updatedAt: new Date(),
   },
   {
-    id: 5,
+    id: '5',
     name: 'Fight',
     color: '4b0082',
     isActive: true,
@@ -49,7 +49,7 @@ export const sLabels: Label[] = [
     updatedAt: new Date(),
   },
   {
-    id: 6,
+    id: '6',
     name: 'Protect',
     color: 'fff0f5',
     isActive: true,

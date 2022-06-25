@@ -1,4 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  ForbiddenException,
+  Get,
+  Post,
+} from '@nestjs/common';
 
 import { AppService } from '~/app.service';
 
@@ -9,5 +15,14 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+
+  @Post()
+  createSample(@Body('admin_key') key) {
+    if (key !== process.env.ADMIN_KEY) {
+      throw new ForbiddenException();
+    }
+
+    return this.appService.createSamples();
   }
 }
