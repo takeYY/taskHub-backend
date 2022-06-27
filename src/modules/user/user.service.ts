@@ -18,8 +18,8 @@ export class UserService {
         email: data.email,
         profile: data.profile,
         avatar: data.avatar,
-        createdAt: data.createdAt,
-        updatedAt: data.updatedAt,
+        createdAt: data.createdAt.toDate(),
+        updatedAt: data.updatedAt.toDate(),
       };
     });
 
