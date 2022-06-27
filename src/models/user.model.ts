@@ -1,7 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { MaxLength, MinLength } from 'class-validator';
+import { MaxLength } from 'class-validator';
 
-// ObjectTypeデコレータを使用することで、定義したmodelを元にschemaが自動生成される
 @ObjectType()
 export class User {
   @Field((type) => ID)
