@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import {
   Args,
   ID,
@@ -27,13 +28,17 @@ export class UserResolver {
   }
 
   @Query(() => User)
-  async user(@Args('id', { type: () => ID }) id: string): Promise<User> {
+  async user(
+    @Args('id', { type: () => ID }, ValidationPipe) id: string,
+  ): Promise<User> {
     return await this.userService.findUserById(id);
   }
 
   // create user
   @Mutation(() => User)
-  async createUser(@Args('user') createUserDto: CreateUserDto): Promise<User> {
+  async createUser(
+    @Args('user', ValidationPipe) createUserDto: CreateUserDto,
+  ): Promise<User> {
     return await this.userService.createUser(createUserDto);
   }
 
