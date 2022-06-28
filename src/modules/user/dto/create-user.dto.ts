@@ -4,7 +4,7 @@ import { IsNotEmpty, MaxLength } from 'class-validator';
 @InputType()
 export class CreateUserDto {
   @Field((type) => ID)
-  @MaxLength(30)
+  @MaxLength(40)
   @IsNotEmpty()
   id: string;
 

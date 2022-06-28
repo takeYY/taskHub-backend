@@ -4,7 +4,7 @@ import { MaxLength } from 'class-validator';
 @ObjectType()
 export class User {
   @Field((type) => ID)
-  @MaxLength(30)
+  @MaxLength(40)
   id: string;
 
   @Field()
