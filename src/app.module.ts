@@ -19,6 +19,7 @@ import { UserModule } from '~/modules/user/user.module';
       /* ローカル開発用 */
       // autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       /* 本番用 */
+      playground: true,
       introspection: true,
       autoSchemaFile: true,
       // 生成されたschemaを自動でsortされるためのオプション
