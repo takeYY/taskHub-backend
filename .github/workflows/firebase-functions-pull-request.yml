@@ -1,0 +1,24 @@
+name: Build
+on: pull_request
+
+jobs:
+  test:
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: lts/-1
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Install firebase-tools
+          run: npm install -g firebase-tools
+
+        - name: Build Nest
+          run: npm run build
