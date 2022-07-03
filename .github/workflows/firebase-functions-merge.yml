@@ -10,22 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: lts/-1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/-1
 
-        - name: Install dependencies
-          run: npm install
+      - name: Install dependencies
+        run: npm install
 
-        - name: Install firebase-tools
-          run: npm install -g firebase-tools
+      - name: Install firebase-tools
+        run: npm install -g firebase-tools
 
-        - name: Build Nest
-          run: npm run build
+      - name: Build Nest
+        run: npm run build
 
-        - name: Deploy to Firebase Functions
-          run: firebase deploy --only functions --token $FIREBASE_TOKEN
-          env:
-            FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to Firebase Functions
+        run: firebase deploy --only functions --token $FIREBASE_TOKEN
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
