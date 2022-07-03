@@ -27,11 +27,15 @@ export class UserResolver {
     return await this.userService.findAllUsers();
   }
 
-  @Query(() => User)
+  @Query(() => User, { nullable: true })
   async user(
     @Args('id', { type: () => ID }, ValidationPipe) id: string,
   ): Promise<User> {
-    return await this.userService.findUserById(id);
+    try {
+      return await this.userService.findUserById(id);
+    } catch {
+      return null;
+    }
   }
 
   // create user

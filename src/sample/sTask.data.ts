@@ -7,7 +7,9 @@ export const sTask: Task[] = [
     id: '1',
     name: '使徒、襲来',
     description: '第4使徒を殲滅する',
+    outputMemo: '...........',
     isDone: false,
+    likeCount: 2,
     userId: sUser.find((user) => user.name === '碇シンジ').id,
     labelId: sLabels.find(
       (label) =>
@@ -20,7 +22,9 @@ export const sTask: Task[] = [
     id: '2',
     name: 'ヤシマ作戦',
     description: 'シンジを守る',
+    outputMemo: '絆だから',
     isDone: false,
+    likeCount: 3,
     userId: sUser.find((user) => user.name === '綾波レイ').id,
     labelId: sLabels.find(
       (label) =>
