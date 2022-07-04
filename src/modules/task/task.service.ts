@@ -37,4 +37,16 @@ export class TaskService {
     }
     return await result;
   }
+
+  // get tasks by user
+  async getTasksByUser(userId: string): Promise<Task[]> {
+    // TODO: taskRefのwhereで直接データを取り込めるようにする
+    const tasks = await this.findAllTasks();
+    const result = tasks.filter((task) => userId === task.userId);
+
+    if (!result) {
+      throw new NotFoundException();
+    }
+    return result;
+  }
 }
