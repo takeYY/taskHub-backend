@@ -8,5 +8,6 @@ import { UserService } from '~/modules/user/user.service';
 @Module({
   imports: [forwardRef(() => LabelModule)],
   providers: [UserService, UserResolver],
+  exports: [UserService],
 })
 export class UserModule {}

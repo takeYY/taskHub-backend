@@ -31,4 +31,17 @@ export class LikeService {
     }
     return await result;
   }
+
+  async findTaskLikedByUserId(taskId: string, userId: string): Promise<Like> {
+    // TODO: likeRefのwhereで直接データを絞り込むようにする
+    const likes = await this.findAllLikes();
+    const result = likes.find((like) => {
+      return taskId === like.taskId && userId === like.userId;
+    });
+
+    if (!result) {
+      throw new NotFoundException();
+    }
+    return result;
+  }
 }
