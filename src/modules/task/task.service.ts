@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { firestore } from '~/app.service';
 import { Task } from '~/models/task.model';
+import { CreateTaskDto } from '~/modules/task/dto/create-task.dto';
 
 @Injectable()
 export class TaskService {
@@ -47,6 +48,28 @@ export class TaskService {
     if (!result) {
       throw new NotFoundException();
     }
+    return result;
+  }
+
+  async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
+    const newTask = {
+      name: createTaskDto.name,
+      description: createTaskDto.description,
+      outputMemo: createTaskDto.outputMemo,
+      isDone: createTaskDto.isDone,
+      likeCount: createTaskDto.likeCount,
+      userId: createTaskDto.userId,
+      labelId: createTaskDto.labelId,
+      createdAt: createTaskDto.createdAt || new Date(),
+      updatedAt: createTaskDto.updatedAt || new Date(),
+    };
+    await this.taskRef.doc(createTaskDto.id).create(newTask);
+
+    const result = {
+      id: createTaskDto.id,
+      ...newTask,
+    };
+
     return result;
   }
 }
