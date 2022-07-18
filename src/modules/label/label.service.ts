@@ -57,10 +57,10 @@ export class LabelService {
       updatedAt: createLabelDto.updatedAt || new Date(),
     };
 
-    await this.labelRef.doc(createLabelDto.id).create(newLabel);
+    const docRef = await this.labelRef.add(newLabel);
 
     const result = {
-      id: createLabelDto.id,
+      id: docRef.id,
       ...newLabel,
     };
 

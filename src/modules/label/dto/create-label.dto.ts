@@ -3,9 +3,7 @@ import { IsNotEmpty, MaxLength } from 'class-validator';
 
 @InputType()
 export class CreateLabelDto {
-  @Field((type) => ID)
-  @MaxLength(40)
-  @IsNotEmpty()
+  @Field((type) => ID, { nullable: true })
   id: string;
 
   @Field((type) => String)
