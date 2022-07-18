@@ -1,11 +1,9 @@
 import { Field, ID, InputType } from '@nestjs/graphql';
-import { IsNotEmpty, MaxLength } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class CreateLikeDto {
-  @Field((type) => ID)
-  @MaxLength(40)
-  @IsNotEmpty()
+  @Field((type) => ID, { nullable: true })
   id: string;
 
   @Field((type) => String)
