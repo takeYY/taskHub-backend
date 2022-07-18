@@ -63,10 +63,10 @@ export class TaskService {
       createdAt: createTaskDto.createdAt || new Date(),
       updatedAt: createTaskDto.updatedAt || new Date(),
     };
-    await this.taskRef.doc(createTaskDto.id).create(newTask);
+    const docRef = await this.taskRef.add(newTask);
 
     const result = {
-      id: createTaskDto.id,
+      id: docRef.id,
       ...newTask,
     };
 
