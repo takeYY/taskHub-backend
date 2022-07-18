@@ -54,19 +54,20 @@ export class LikeService {
       userId: createLikeDto.userId,
       createdAt: createLikeDto.createdAt || new Date(),
     };
+    let docRef: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>;
     try {
       await firestore.runTransaction(async (t) => {
         await this.taskRef.doc(createLikeDto.taskId).update({
           likeCount: FieldValue.increment(1),
         });
-        await this.likeRef.doc(createLikeDto.id).create(newLike);
+        docRef = await this.likeRef.add(newLike);
       });
     } catch {
       throw new NotFoundException();
     }
 
     const result = {
-      id: createLikeDto.id,
+      id: docRef.id,
       ...newLike,
     };
 
