@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { firestore } from '~/app.service';
 import { Label } from '~/models/label.model';
+import { CreateLabelDto } from '~/modules/label/dto/create-label.dto';
 
 @Injectable()
 export class LabelService {
@@ -44,5 +45,25 @@ export class LabelService {
       throw new NotFoundException();
     }
     return await result;
+  }
+
+  async createLabel(createLabelDto: CreateLabelDto): Promise<Label> {
+    const newLabel = {
+      name: createLabelDto.name,
+      color: createLabelDto.color,
+      isActive: createLabelDto.isActive || true,
+      userId: createLabelDto.userId,
+      createdAt: createLabelDto.createdAt || new Date(),
+      updatedAt: createLabelDto.updatedAt || new Date(),
+    };
+
+    await this.labelRef.doc(createLabelDto.id).create(newLabel);
+
+    const result = {
+      id: createLabelDto.id,
+      ...newLabel,
+    };
+
+    return result;
   }
 }

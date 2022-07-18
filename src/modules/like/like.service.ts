@@ -1,11 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { FieldValue } from 'firebase-admin/firestore';
 
 import { firestore } from '~/app.service';
 import { Like } from '~/models/like.model';
+import { CreateLikeDto } from '~/modules/like/dto/create-like.dto';
 
 @Injectable()
 export class LikeService {
   private likeRef = firestore.collection('likes');
+  private taskRef = firestore.collection('tasks');
 
   async findAllLikes(): Promise<Like[]> {
     const snapshot = await this.likeRef.get();
@@ -42,6 +45,31 @@ export class LikeService {
     if (!result) {
       throw new NotFoundException();
     }
+    return result;
+  }
+
+  async createLike(createLikeDto: CreateLikeDto): Promise<Like> {
+    const newLike = {
+      taskId: createLikeDto.taskId,
+      userId: createLikeDto.userId,
+      createdAt: createLikeDto.createdAt || new Date(),
+    };
+    try {
+      await firestore.runTransaction(async (t) => {
+        await this.taskRef.doc(createLikeDto.taskId).update({
+          likeCount: FieldValue.increment(1),
+        });
+        await this.likeRef.doc(createLikeDto.id).create(newLike);
+      });
+    } catch {
+      throw new NotFoundException();
+    }
+
+    const result = {
+      id: createLikeDto.id,
+      ...newLike,
+    };
+
     return result;
   }
 }

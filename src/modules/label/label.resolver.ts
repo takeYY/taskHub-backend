@@ -1,6 +1,8 @@
-import { Args, ID, Int, Query, Resolver } from '@nestjs/graphql';
+import { NotFoundException, ValidationPipe } from '@nestjs/common';
+import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { Label } from '~/models/label.model';
+import { CreateLabelDto } from '~/modules/label/dto/create-label.dto';
 import { LabelService } from '~/modules/label/label.service';
 
 @Resolver((of) => Label)
@@ -15,5 +17,16 @@ export class LabelResolver {
   @Query(() => Label)
   async label(@Args('id', { type: () => ID }) id: string): Promise<Label> {
     return await this.LabelService.findOneById(id);
+  }
+
+  @Mutation(() => Label)
+  async createLabel(
+    @Args('label', ValidationPipe) createLabelDto: CreateLabelDto,
+  ): Promise<Label> {
+    try {
+      return await this.LabelService.createLabel(createLabelDto);
+    } catch {
+      throw new NotFoundException();
+    }
   }
 }

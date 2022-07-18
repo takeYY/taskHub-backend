@@ -1,6 +1,8 @@
+import { ValidationPipe } from '@nestjs/common';
 import {
   Args,
   ID,
+  Mutation,
   Parent,
   Query,
   ResolveField,
@@ -13,6 +15,7 @@ import { Task } from '~/models/task.model';
 import { User } from '~/models/user.model';
 import { LabelService } from '~/modules/label/label.service';
 import { LikeService } from '~/modules/like/like.service';
+import { CreateTaskDto } from '~/modules/task/dto/create-task.dto';
 import { TaskService } from '~/modules/task/task.service';
 import { UserService } from '~/modules/user/user.service';
 
@@ -44,6 +47,13 @@ export class TaskResolver {
     } catch {
       return [];
     }
+  }
+
+  @Mutation(() => Task)
+  async createTask(
+    @Args('task', ValidationPipe) createTaskDto: CreateTaskDto,
+  ): Promise<Task> {
+    return await this.taskService.createTask(createTaskDto);
   }
 
   @ResolveField(() => User)
